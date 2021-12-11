@@ -1,16 +1,22 @@
-### Hi there 👋
+![Development and programming](https://pbs.twimg.com/profile_banners/1453999691511836677/1639265722/1500x500)
+# Eren Aloglu
 
-<!--
-**loop-er/loop-er** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm Eren from Turkey, and I do content on Development and Programing. I realy enjoy learning new stuff and like computer science, also I also enjoy speed cube, cryptography, blockchain, Robotics programming, ui design. 
 
-Here are some ideas to get you started:
+## Skills and Experince
+- 🔐 cryptography and Security
+- 👩‍💻 HTML, CSS,JS 
+- 📱 Flutter  
+# Speed Cube
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+
+
+
+
+
+
+[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg' alt='github' height='40'>](https://github.com/loop-er)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg' alt='twitter' height='40'>](https://twitter.com/loop_eren)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/stackoverflow.svg' alt='stackoverflow' height='40'>](https://stackoverflow.com/users/loop.eren)  
+
+
+
+
