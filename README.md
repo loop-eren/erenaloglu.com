@@ -6,7 +6,6 @@ I'm Eren from Turkey, and I do content on Development and Programing. I realy en
 ## Skills and Experince
 - 🔐 cryptography and Security
 - 👩‍💻 HTML, CSS,JS 
-- 📱 Flutter  
 ## Speed Cube
 
 <img src="https://github.com/loop-er/loop-er/blob/main/video.gif" width=258px>
