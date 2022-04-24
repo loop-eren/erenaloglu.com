@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="#"><img id="icon" src="/moon.png" alt="" /></a>
+    <main>
+      <img src="erenMainFoto2.jpeg" alt="" />
+      <div class="text">
+        <h1>Eren Aloglu</h1>
+        <p>Web and Blockchain Developer | Student</p>
+      </div>
+      <hr />
+      <div class="logos">
+        <a href="https://twitter.com/loop_eren"
+          ><i class="fa-brands fa-twitter"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/sahnur-eren-aloglu-900b81233/"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+        <a href=""><i class="fa-brands fa-spotify"></i></a>
+        <a href="https://github.com/loop-er"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+      </div>
+    </main>
+    <script>
+      const icon = document.getElementById('icon');
+
+      icon.onclick = function () {
+        document.body.classList.toggle('dark-theme');
+        if (document.body.classList.contains('dark-theme')) {
+          icon.src = '/sun.png';
+        } else {
+          icon.src = '/moon.png';
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* --bgw-color: #fff;
+--text-color: black; */
+:root {
+ --bgw-color: #fff;
+--text-color: #092c3e; 
+}
+.dark-theme{
+      --bgw-color: #092c3e;
+  --text-color: white;
+}
+
+* {
+  padding: 0px;
+  margin: 0%;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+}
+
+body {
+  background: var(--bgw-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+img {
+  width: 300px;
+  border-radius: 50%;
+}
+main {
+  margin-top: 100px;
+}
+.text {
+      color: var(--text-color);
+  text-align: center;
+}
+p {
+      color: var(--text-color);
+  padding-bottom: 10px;
+}
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  text-align: center;
+  font-size: 40px;
+  padding: 10px;
+}
+
+.logos {
+  text-align: center;
+}
+
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  visibility: none;
+}
+
+.check {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 30px;
+  background-color: #092c3e;
+  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+
+  transition: ease-in 0.5s;
+}
+
+input[type='checkbox']:checked ~ .check {
+  background: #fff;
+  box-shadow: 0 0 0 1200px #092c3e;
+}
+
+.check::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  transition: 0.5s;
+  transform: translateX(30px);
+}
+
+input[type='checkbox']:checked ~ .check:after {
+  transform: translateX(0px);
+}
+#icon{
+   
+    text-align: center;
+    width: 30px;
+}
