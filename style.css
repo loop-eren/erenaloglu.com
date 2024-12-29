@@ -13,7 +13,7 @@
 --text-color: #092c3e; 
 }
 .dark-theme{
-      --bgw-color: #092c3e;
+      --bgw-color: #333;
   --text-color: white;
 }
 
@@ -119,7 +119,7 @@ input[type='checkbox']:checked ~ .check:after {
      top: 0%;
      width: 100%;
      height: 100vh;
-     background-color: #092c3e;
+     background-color: #333;
      transition: 1s;
     }
     .logo-header{
