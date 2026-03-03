@@ -1,95 +1,407 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link rel="icon" href="/img/page_img.png" type=“image/x-icon”>
-    <title>Eren Aloglu</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-        <div class="intro">
-        <h1 class="logo-header">
-            <span class="logo">Eren</span> <span class="logo">Aloglu</span>
-        </h1>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güvenlik Araştırmacısı Portfolyosu | Security Researcher Portfolio</title>
+    <style>
+        /* Genel sayfa ayarları ve karanlık tema */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Dil Seçenekleri Tasarımı */
+        .lang-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #8b949e;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .lang-btn:hover {
+            color: #c9d1d9;
+        }
+
+        .lang-btn.active {
+            color: #58a6ff;
+            text-decoration: underline;
+        }
+
+        .lang-separator {
+            color: #30363d;
+            margin: 0 5px;
+        }
+
+        /* İçerik kutusu */
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 60px auto 40px auto;
+            background-color: #161b22;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border: 1px solid #30363d;
+        }
+
+        /* Profil ve başlık bölümü (Yan Yana Tasarım) */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            gap: 25px; 
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 30px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #238636;
+            flex-shrink: 0; 
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1; 
+            min-width: 0; 
+        }
+        
+        .profile-info h1 {
+            color: #58a6ff;
+            margin: 0 0 5px 0;
+            font-size: 2.2em;
+        }
+        
+        .profile-info h2 {
+            color: #8b949e;
+            font-size: 1.1em;
+            font-weight: normal;
+            margin: 0 0 12px 0;
+        }
+
+        /* Şirket Linki Wrapper */
+        .company-social-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap; 
+            margin-bottom: 10px;
+        }
+
+        /* "Work At" yazısı için yeni ve kibar tasarım */
+        .work-at-label {
+            color: #8b949e;
+            font-weight: normal;
+            font-size: 0.95em;
+        }
+
+        /* Firma adı için siber güvenlik yeşili */
+        .company-link {
+            color: #238636;
+            text-decoration: none;
+            font-size: 1.05em;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .company-link:hover {
+            color: #2ea043;
+            text-decoration: underline;
+        }
+
+        /* İletişim (Mail) Wrapper */
+        .contact-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mail-icon {
+            width: 20px;
+            height: 20px;
+            fill: #8b949e;
+        }
+
+        .mail-link {
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .mail-link:hover {
+            color: #58a6ff;
+            text-decoration: underline;
+        }
+
+        /* Sağdaki Büyük LinkedIn Logosu */
+        .linkedin-container {
+            flex-shrink: 0; 
+        }
+
+        .linkedin-icon {
+            width: 60px; 
+            height: 60px;
+            fill: #8b949e;
+            transition: fill 0.2s, transform 0.2s;
+        }
+
+        .linkedin-icon:hover {
+            fill: #0a66c2; 
+            transform: scale(1.1);
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .profile-info {
+                align-items: center;
+            }
+            .company-social-wrapper {
+                justify-content: center;
+            }
+        }
+
+        /* CVE Listesi tasarımları */
+        .cve-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .cve-item {
+            background-color: #21262d;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #238636;
+            transition: transform 0.2s ease;
+        }
+        
+        .cve-item:hover {
+            transform: translateX(5px);
+            background-color: #30363d;
+        }
+        
+        .cve-link {
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .cve-link:hover {
+            text-decoration: underline;
+        }
+        
+        .cve-desc {
+            margin-top: 8px;
+            font-size: 0.95em;
+            color: #8b949e;
+            line-height: 1.5;
+        }
+
+        /* Dil Gizleme/Gösterme Mantığı */
+        body.lang-tr .en { display: none !important; }
+        body.lang-en .tr { display: none !important; }
+    </style>
+</head>
+<body class="lang-tr">
+
+    <div class="lang-toggle">
+        <button id="btn-tr" class="lang-btn active" onclick="setLanguage('tr')">TR</button>
+        <span class="lang-separator">|</span>
+        <button id="btn-en" class="lang-btn" onclick="setLanguage('en')">EN</button>
     </div>
 
-    <a href="#dark"><img id="icon" src="img/moon.png" alt="" /></a>
-    <main>
-      <img src="/img/eren.jpg" alt="" />
-      <div class="text">
-        <h1>Eren Aloglu</h1>
-        <p>Cyber Security</p>
-      </div>
-      <hr />
-      <div class="logos">
-       
-        <a href="https://www.linkedin.com/in/%C5%9Fahnur-eren-alo%C4%9Flu-900b81233/"
-          ><i class="fa-brands fa-linkedin"></i
-        >
+    <div class="container">
+        <div class="profile-header">
+            <img src="erenCVfoto.jpg" alt="Profil Fotoğrafı" class="profile-pic">
+            
+            <div class="profile-info">
+                <h1>Şahnur Eren Aloğlu</h1>
+                
+                <h2>Penetration Tester | Application Security</h2>
+                
+                <div class="company-social-wrapper">
+                    <span class="work-at-label">Work At</span>
+                    <a href="https://bilishim.com/" target="_blank" class="company-link">
+                        <span class="tr">Bilişim Siber Güvenlik ve Yapay Zeka</span>
+                        <span class="en">Bilishim Cyber Security and Artificial Intelligence</span>
+                    </a>
+                </div>
 
-        </a>
-           <a href="https://www.instagram.com/eren.aloglu/"
-          ><i class="fa-brands fa-instagram"></i
-        >
-        
-        </a>
-        <a href="https://open.spotify.com/user/21fz5hdf3gmzdh3mqb4tykc6q"><i class="fa-brands fa-spotify"></i></a>
-        <a href="https://github.com/loop-eren"
-          ><i class="fa-brands fa-github"></i
-        ></a>
-      </div>
-     
+                <div class="contact-wrapper">
+                    <svg class="mail-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.866l5.6-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+                    </svg>
+                    <a href="mailto:sahnuraloglu@gmail.com" class="mail-link">sahnuraloglu@gmail.com</a>
+                </div>
+            </div>
 
-    </main>
+            <div class="linkedin-container">
+                <a href="https://www.linkedin.com/in/%C5%9Fahnur-eren-alo%C4%9Flu-900b81233/" target="_blank" title="LinkedIn Profile">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <h3 style="color: #c9d1d9;">
+                <span class="tr">Keşfedilen Zafiyetler (CVE)</span>
+                <span class="en">Discovered Vulnerabilities (CVE)</span>
+            </h3>
+            <p style="color: #8b949e;">
+                <span class="tr">Aşağıda tespit ettiğim güvenlik açıklarından bazıları ve resmi yayın bağlantıları yer almaktadır:</span>
+                <span class="en">Below are some of the security vulnerabilities I have discovered, along with their official publication links:</span>
+            </p>
+
+            <ul class="cve-list">
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-0642" target="_blank" class="cve-link">CVE-2025-0642</a>
+                    <div class="cve-desc">
+                        <span class="tr">PosCube Assist yazılımında kimlik doğrulamanın atlatılmasına (Authentication Bypass) olanak tanıyan IDOR (CWE-639) ve Sabit Kodlanmış Kimlik Bilgisi (CWE-798) zafiyeti.</span>
+                        <span class="en">IDOR (CWE-639) and Hard-coded Credentials (CWE-798) vulnerability in PosCube Assist, allowing authentication bypass.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-1395" target="_blank" class="cve-link">CVE-2025-1395</a>
+                    <div class="cve-desc">
+                        <span class="tr">HeyGarson uygulamasında hata mesajları üzerinden hassas bilgi ifşasına (CWE-209) yol açan ve uygulama haritalama (Fuzzing) yapılmasına izin veren zafiyet.</span>
+                        <span class="en">Sensitive information disclosure (CWE-209) via error messages in HeyGarson, allowing fuzzing for application mapping.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-1469" target="_blank" class="cve-link">CVE-2025-1469</a>
+                    <div class="cve-desc">
+                        <span class="tr">Turtek Software Eyotek sisteminde yetki atlatmaya olanak tanıyan kritik Insecure Direct Object Reference (IDOR / CWE-639) zafiyeti.</span>
+                        <span class="en">Insecure Direct Object Reference (IDOR / CWE-639) vulnerability in Turtek Software Eyotek, allowing authorization bypass.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-5261" target="_blank" class="cve-link">CVE-2025-5261</a>
+                    <div class="cve-desc">
+                        <span class="tr">Pik Online yazılımında yetki kontrollerinin atlatılarak başka kullanıcılara ait verilere erişilmesine olanak tanıyan IDOR (CWE-639) zafiyeti.</span>
+                        <span class="en">Authorization bypass vulnerability (IDOR / CWE-639) in Pik Online, allowing exploitation of trusted identifiers to access other users' data.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-5518" target="_blank" class="cve-link">CVE-2025-5518</a>
+                    <div class="cve-desc">
+                        <span class="tr">ArgusTech BILGER sisteminde düşük yetkili bir kullanıcının güvenilen tanımlayıcıları manipüle etmesine izin veren IDOR (CWE-639) zafiyeti.</span>
+                        <span class="en">IDOR (CWE-639) vulnerability in ArgusTech BILGER, allowing a low-privileged user to exploit trusted identifiers and bypass authorization.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-5519" target="_blank" class="cve-link">CVE-2025-5519</a>
+                    <div class="cve-desc">
+                        <span class="tr">ArgusTech BILGER sisteminde gönderilen veriler arasına hassas bilgilerin eklenmesiyle (CWE-201) oluşan bilgi ifşası zafiyeti.</span>
+                        <span class="en">Information disclosure vulnerability (CWE-201) in ArgusTech BILGER caused by the insertion of sensitive information into sent data.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-5681" target="_blank" class="cve-link">CVE-2025-5681</a>
+                    <div class="cve-desc">
+                        <span class="tr">Turtek Software Eyotek uygulamasında tespit edilen bir başka IDOR (CWE-639) zafiyeti; güvenilen tanımlayıcıların istismar edilmesine olanak tanır.</span>
+                        <span class="en">Another IDOR (CWE-639) vulnerability discovered in Turtek Software Eyotek, allowing the exploitation of trusted identifiers.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-7013" target="_blank" class="cve-link">CVE-2025-7013</a>
+                    <div class="cve-desc">
+                        <span class="tr">QR Menu Pro Smart Menu Panel'inde kullanıcı kontrollü anahtarlar üzerinden yetkilendirme atlatılmasına izin veren IDOR (CWE-639) zafiyeti.</span>
+                        <span class="en">IDOR (CWE-639) vulnerability in QR Menu Pro Smart Menu Panel, allowing authorization bypass through user-controlled keys.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-7014" target="_blank" class="cve-link">CVE-2025-7014</a>
+                    <div class="cve-desc">
+                        <span class="tr">QR Menu Pro Smart Menu Panel'inde oturum ele geçirmeye (Session Hijacking) olanak tanıyan Session Fixation (CWE-384) zafiyeti.</span>
+                        <span class="en">Session Fixation vulnerability (CWE-384) in QR Menu Pro Smart Menu Panel, allowing session hijacking.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-7015" target="_blank" class="cve-link">CVE-2025-7015</a>
+                    <div class="cve-desc">
+                        <span class="tr">Akınsoft QR Menu uygulamasında tespit edilen ve saldırganların yetkisiz oturum atamasına yol açabilen Session Fixation (CWE-384) zafiyeti.</span>
+                        <span class="en">Session Fixation vulnerability (CWE-384) in Akinsoft QR Menu, allowing attackers to predetermine session identifiers.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-7016" target="_blank" class="cve-link">CVE-2025-7016</a>
+                    <div class="cve-desc">
+                        <span class="tr">Akınsoft QR Menu sisteminde kimlik doğrulamanın kötüye kullanılmasına (Authentication Abuse) izin veren Hatalı Erişim Kontrolü (CWE-284) zafiyeti.</span>
+                        <span class="en">Improper Access Control vulnerability (CWE-284) in Akinsoft QR Menu, allowing authentication abuse.</span>
+                    </div>
+                </li>
+
+                <li class="cve-item">
+                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-7708" target="_blank" class="cve-link">CVE-2025-7708</a>
+                    <div class="cve-desc">
+                        <span class="tr">Atlas K12net eğitim yazılımında tespit edilen, iletişim kanalının manipüle edilmesine yol açan Hassas Veri İfşası (CWE-201) zafiyeti.</span>
+                        <span class="en">Sensitive information disclosure vulnerability (CWE-201) in K12net educational software, allowing communication channel manipulation.</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <script>
-      const icon = document.getElementById('icon');
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+            document.documentElement.lang = lang;
 
-      icon.onclick = function () {
-        document.body.classList.toggle('dark-theme');
-        if (document.body.classList.contains('dark-theme')) {
-          icon.src = 'img/sun.png';
-        } else {
-          icon.src = 'img/moon.png';
+            if(lang === 'tr') {
+                document.getElementById('btn-tr').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+            } else {
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-tr').classList.remove('active');
+            }
         }
-      };
-      let intro = document.querySelector('.intro');
-let logo = document.querySelector('.logo-header');
-let logoSpan = document.querySelectorAll('.logo');
-
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    logoSpan.forEach((span, idx) => {
-      setTimeout(() => {
-        span.classList.add('active');
-        }, (idx + 1) * 400);
-    });
-
-    setTimeout(() => {
-      logoSpan.forEach((span, idx) => {
-        setTimeout(() => {
-          span.classList.remove('active');
-          span.classList.add('fade');
-        }, (idx + 1) * 50);
-      });
-    }, 2000);
-    setTimeout(()=>{
-        intro.style.top = '-100vh'
-    },2300)
-  });
-});
-
     </script>
-  </body>
+</body>
 </html>
-
-
