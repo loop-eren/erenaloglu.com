@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Şahnur Eren Aloğlu</title>
     <style>
-        
         body {
             font-family: 'Courier New', Courier, monospace;
             background-color: #0d1117;
@@ -17,7 +16,6 @@
             align-items: center;
         }
         
-    
         .lang-toggle {
             position: absolute;
             top: 20px;
@@ -27,6 +25,7 @@
             padding: 8px 15px;
             border-radius: 6px;
             font-size: 14px;
+            z-index: 10; /* Üstte kalmasını garantiledik */
         }
 
         .lang-btn {
@@ -53,19 +52,18 @@
             margin: 0 5px;
         }
 
-       
         .container {
             max-width: 800px;
             width: 90%;
-            margin: 60px auto 40px auto;
+            margin: 80px auto 40px auto; /* Üst boşluğu dil butonu için biraz artırdık */
             background-color: #161b22;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             border: 1px solid #30363d;
+            box-sizing: border-box; /* Padding'in genişliği bozmasını engelledik */
         }
 
-       
         .profile-header {
             display: flex;
             align-items: center;
@@ -106,7 +104,6 @@
             margin: 0 0 12px 0;
         }
 
-       
         .company-social-wrapper {
             display: flex;
             align-items: center;
@@ -115,14 +112,12 @@
             margin-bottom: 10px;
         }
 
-       
         .work-at-label {
             color: #8b949e;
             font-weight: normal;
             font-size: 0.95em;
         }
 
-       
         .company-link {
             color: #238636;
             text-decoration: none;
@@ -136,11 +131,11 @@
             text-decoration: underline;
         }
 
-      
         .contact-wrapper {
             display: flex;
             align-items: center;
             gap: 8px;
+            flex-wrap: wrap;
         }
 
         .mail-icon {
@@ -155,6 +150,7 @@
             font-size: 0.95em;
             font-weight: bold;
             transition: color 0.2s;
+            word-break: break-all; /* Uzun e-postaların taşmasını önler */
         }
 
         .mail-link:hover {
@@ -162,7 +158,6 @@
             text-decoration: underline;
         }
 
-       
         .linkedin-container {
             flex-shrink: 0; 
         }
@@ -179,22 +174,6 @@
             transform: scale(1.1);
         }
 
-      
-        @media (max-width: 768px) {
-            .profile-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            .profile-info {
-                align-items: center;
-            }
-            .company-social-wrapper {
-                justify-content: center;
-            }
-        }
-
-      
         .cve-list {
             list-style-type: none;
             padding: 0;
@@ -230,11 +209,41 @@
             font-size: 0.95em;
             color: #8b949e;
             line-height: 1.5;
+            word-wrap: break-word; /* Uzun metinlerin kutudan taşmasını engeller */
         }
 
-       
         body.lang-tr .en { display: none !important; }
         body.lang-en .tr { display: none !important; }
+
+        /* MOBİL UYUMLULUK (BURASI GÜNCELLENDİ) */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px; /* Mobilde iç boşluğu daralttık ki içerik sıkışmasın */
+                margin-top: 70px; /* Dil butonu ile çakışmaması için mesafe verdik */
+                width: 95%; /* Genişliği biraz daha yaydık */
+            }
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .profile-info {
+                align-items: center;
+            }
+            .profile-info h1 {
+                font-size: 1.8em; /* Mobilde ismi biraz küçülttük */
+            }
+            .company-social-wrapper, .contact-wrapper {
+                justify-content: center; /* E-posta kısmını da merkeze hizaladık */
+                text-align: center;
+            }
+            .cve-item {
+                padding: 15px; /* Mobilde CVE kutularının içini çok şişirmemesi için boşluğu azalttık */
+            }
+            .linkedin-container {
+                margin-top: 10px; /* Mobilde LinkedIn ikonuna üstten nefes aldırdık */
+            }
+        }
     </style>
 </head>
 <body class="lang-tr">
@@ -405,6 +414,3 @@
     </script>
 </body>
 </html>
-
-
-
